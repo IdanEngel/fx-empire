@@ -5,6 +5,7 @@ import OneDay from "./components/OneDay";
 import OneWeek from "./components/OneWeek";
 import OneMin from "./components/OneMin";
 import FiveMin from "./components/FiveMin";
+import OpeningAnimation from "./components/openingAnimation/OpeningAnimation";
 
 function App() {
   const [component, setComponent] = useState("OneMinute");
@@ -54,6 +55,7 @@ function App() {
   };
   return (
     <>
+    <OpeningAnimation/>
       <div className="container">
         <table>
           <tbody>
@@ -87,6 +89,7 @@ function App() {
                 One Day
               </th>
               <th
+              className="lastOne"
                 ref={oneWeekRef}
                 onClick={() => {
                   renderSwitch("OneWeek");

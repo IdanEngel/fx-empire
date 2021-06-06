@@ -24,7 +24,7 @@ function OneWeek() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="mainChart">
       <ResponsiveContainer width="95%" height={400}>
         <AreaChart data={state}>
           <defs>
@@ -56,7 +56,7 @@ function OneWeek() {
 function CustomTooltip({ active, payload, label }) {
   if (active && payload) {
     return (
-      <div className="tooltip">
+      <div className="tooltip" >
         <h4>Date/Time: {label}</h4>
         <p>Close: {payload[0].value.toFixed(2)} $</p>
       </div>

@@ -23,7 +23,7 @@ function OneMin() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="mainChart">
       <ResponsiveContainer width="95%" height={400}>
         <AreaChart data={state}>
           <defs>

@@ -2,9 +2,9 @@
   background-color: #282c34;
   color: white;
 }
-.App {
+.mainChart {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 .container {
   padding-top: 2rem;
@@ -20,7 +20,7 @@ table {
 th {
   padding: 1rem;
   cursor: pointer;
-  border-right:  3px solid white;
+  border-right: 3px solid white;
   border-width: 2px;
   line-height: 0px;
 }
@@ -36,4 +36,22 @@ th {
   text-align: center;
   width: 100%;
   opacity: 80%;
+}
+.lastOne {
+  border: none;
+}
+@media screen and (max-width: 600px) {
+  table {
+    display: flex;
+    padding-left: 0;
+    flex-direction: column;
+  }
+  tr {
+    display: flex;
+    flex-direction: column;
+  }
+  th {
+    padding: rem;
+    border: none;
+  }
 }
