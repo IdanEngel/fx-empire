@@ -14,11 +14,14 @@ import "../App.css";
 
 function OneWeek() {
   const [state, setstate] = useState([]);
+  
+  const timePercision = "Hours";
+  const timePeriod = 168;
 
   useEffect(() => {
     axios
       .get(
-        `https://www.fxempire.com/api/v1/en/stocks/chart/candles?Identifier=AAPL.XNAS&IdentifierType=Symbol&AdjustmentMethod=All&IncludeExtended=False&period=168&Precision=Hours&StartTime=8/28/2020%2016:0&EndTime=9/4/2020%2023:59&_fields=ChartBars.StartDate,ChartBars.High,ChartBars.Low,ChartBars.StartTime,ChartBars.Open,ChartBars.Close,ChartBars.Volume`
+        `https://www.fxempire.com/api/v1/en/stocks/chart/candles?Identifier=AAPL.XNAS&IdentifierType=Symbol&AdjustmentMethod=All&IncludeExtended=False&period=${timePeriod}&Precision=${timePercision}&StartTime=8/28/2020%2016:0&EndTime=9/4/2020%2023:59&_fields=ChartBars.StartDate,ChartBars.High,ChartBars.Low,ChartBars.StartTime,ChartBars.Open,ChartBars.Close,ChartBars.Volume`
       )
       .then((res) => setstate(res.data));
   }, []);
@@ -43,9 +46,7 @@ function OneWeek() {
               (dataMax) => Math.ceil(dataMax),
             ]}
           />
-          <Tooltip
-            content={<CustomTooltip />}
-          />
+          <Tooltip content={<CustomTooltip />} />
           <CartesianGrid opacity={0.1} />
         </AreaChart>
       </ResponsiveContainer>
@@ -56,7 +57,7 @@ function OneWeek() {
 function CustomTooltip({ active, payload, label }) {
   if (active && payload) {
     return (
-      <div className="tooltip" >
+      <div className="tooltip">
         <h4>Date/Time: {label}</h4>
         <p>Close: {payload[0].value.toFixed(2)} $</p>
       </div>
